@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+        
+        <script src="./script.js" defer></script>
+        <link rel="stylesheet" href="./style.css">
+
+        <title>Reflex Game</title>
+        <meta name="description" content="Jeux de clic réflexe, le but est d'avoir un temps de reaction moyen le plus bas"> 
+    </head>
+
+    <body>
+            <h1>REFLEX GAME</h1>
+
+            <div class="container">
+                    <div id="game-container" class="game-container">
+                        <h2 id="game-text" class="game-text">READY ?</h2>
+                    </div>
+    
+                    <div id="stat-container" class="stat-container">
+                        <div class="counter">
+                            <h3>Target :</h3>
+                            <p><span id="target-count" class="target-count"></span> &#11093</p>
+                        </div>
+                        <button id="start-btn" class="start-btn">Start</button>
+                        <div class="counter">
+                            <h3>Best score :</h3>
+                            <p><span id="best-score" class="best-score"></span> &#11088</p>
+                        </div>
+                    </div>
+            </div>
+
+    </body>
+
+</html>

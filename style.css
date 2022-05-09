@@ -1,0 +1,123 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* FONT */
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h1 {
+    font-weight: 900;
+    font-size: 4.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+
+/* PAGE */
+
+body {
+    background: rgb(0, 7, 110);
+}
+
+h1 {
+    margin-top: 25px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 10rem;
+    justify-content: center;
+    align-items: center;
+    height: 625px;
+    display: none;
+}
+
+.container {
+    padding: 20px 0;
+}
+
+.game-container {
+    position: relative;
+    width: 1500px;
+    height: 625px;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 20px;
+    user-select: none;
+
+}
+
+.stat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.counter { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2.5rem;
+    width: 300px;
+    background: white;
+    height: 140px;
+    border-radius: 20px;
+}
+
+.start-btn {
+    width: 200px;
+    height: 100px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    border: solid #fff 5px;
+    background: linear-gradient(121deg, #FF5050 14%, #FFA5A5 81%);
+    border-radius: 20px;
+}
+
+.start-btn:hover {
+    cursor: pointer;
+}
+
+.start-btn:active {
+    background: linear-gradient(121deg, #bcff50 14%, #a5ffc3 81%);
+}
+
+/* CLASS FOR JS */
+
+.valid-clic {
+    background: #efffd5;
+}
+
+.invalid-clic {
+    background: #ffdcdc;
+}
+
+.stop-start {
+    background: linear-gradient(121deg, #4d4d4d 14%, #9c9c9c 81%);
+}
+
+.clic-ball {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient( #FFFFFF 0%, #FF5050 57%);
+    border-radius: 100%;
+}
+
+.flex-active {
+    display: flex;
+}
+
+.result-display {
+    font-size: 4rem;
+}
