@@ -8,10 +8,10 @@ let timeStart;
 let timeEnd;
 let averageTime;
 let averageResult;
-let bestScore;
-let timeResult = [];
 let apparitionCount;
+let timeResult = [];
 let errorClic = 0;
+let bestScore = localStorage.getItem("bestScore");
 
 // Appear speed
 let minTimeAppear = 500;
@@ -133,23 +133,24 @@ function averageClic(array) {
     return (sum / array.length).toFixed(2);
 }
 
+function saveBestScore(entrie) {
+    localStorage.setItem("bestScore", entrie);
+}
+
 function displayResult() {
-    if (bestScore === undefined) {
+    if (bestScore === undefined || bestScore === null) {
         bestScore = averageResult;
-    }
-    if (averageResult < bestScore) {
+    } else if (averageResult > localStorage.getItem("bestScore")) {
+        bestScore = localStorage.getItem("bestScore");
+    } else {
         bestScore = averageResult;
     }
     saveBestScore(bestScore);
     displayBestScore.innerHTML = localStorage.getItem("bestScore") + "s";
     gameText.innerHTML = `&#127919 Result: &#127919</br>
-    - &#9201 Average time : ${averageResult}s.</br>
-    - &#11088 Best score : ${localStorage.getItem("bestScore")}s.</br>
-    - &#10060 Miss Clic : ${errorClic}.`
+    - &#9201 Average time : ${averageResult}s</br>
+    - &#11088 Best score : ${localStorage.getItem("bestScore")}s</br>
+    - &#10060 Miss Clic : ${errorClic}`
     gameText.classList.add("result-display");
     gameText.classList.add("flex-active");
-}
-
-function saveBestScore(entrie) {
-    localStorage.setItem("bestScore", entrie);
 }
