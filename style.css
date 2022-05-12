@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 
 * {
     margin: 0;
@@ -45,20 +45,19 @@ h2 {
 
 .game-container {
     position: relative;
-    width: 1500px;
-    height: 625px;
+    width: 90vw;
+    height: 65vh;
     margin: 0 auto;
     background: #fff;
     margin-bottom: 20px;
     user-select: none;
-
 }
+
 
 .stat-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .counter { 
@@ -94,11 +93,11 @@ h2 {
 
 /* CLASS FOR JS */
 
-.valid-clic {
+.valid-click {
     background: #efffd5;
 }
 
-.invalid-clic {
+.invalid-click {
     background: #ffdcdc;
 }
 
@@ -106,11 +105,7 @@ h2 {
     background: linear-gradient(121deg, #4d4d4d 14%, #9c9c9c 81%);
 }
 
-.stop-start:hover {
-    background: linear-gradient(121deg, #4d4d4d 14%, #9c9c9c 81%);
-}
-
-.clic-ball {
+.click-ball {
     position: absolute;
     width: 30px;
     height: 30px;
@@ -124,4 +119,44 @@ h2 {
 
 .result-display {
     font-size: 4rem;
+}
+
+/* -------- MEDIA QUERIES -------- */
+
+@media (max-width: 900px) {
+    h1 {
+        display: none;
+    }
+
+    .game-text {
+        font-size: 2.5rem;
+    }
+    
+
+    .stat-container .counter, .stat-container .start-btn {
+        width: 150px;
+        height: 80px;
+    }
+
+    .stat-container h3, .stat-container button, .stat-container p {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .game-text {
+        font-size: 1.3rem;
+        align-items: baseline;
+        padding-top: 30px;
+    }
+
+    .stat-container .counter, .stat-container .start-btn {
+        width: 90px;
+        height: 60px;
+    }
+
+    .stat-container h3, .stat-container button, .stat-container p {
+        font-size: 1rem;
+    }
 }

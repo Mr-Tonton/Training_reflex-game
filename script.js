@@ -1,8 +1,8 @@
 // ---------------- VARIABLES -----------------
 
 
-// Number of target
-let apparitionNumber = 4;
+// Number of targets
+let apparitionNumber = 10;
 
 let timeStart;
 let timeEnd;
@@ -10,8 +10,9 @@ let averageTime;
 let averageResult;
 let apparitionCount;
 let timeResult = [];
-let errorClic = 0;
+let errorClick = 0;
 let bestScore = localStorage.getItem("bestScore");
+let ballWidth = 30;
 
 // Appear speed
 let minTimeAppear = 500;
@@ -49,14 +50,14 @@ startBtn.addEventListener("click", function () {
 
 gameContainer.addEventListener("click", function (e) {
     const target = e.target;
-    if (target.className === "clic-ball") {
+    if (target.classList.contains("click-ball")) {        
         timeEnd = Date.now();
-        averageTime = ((timeEnd - timeStart) / 1000).toFixed(2);
+        averageTime = timeEnd - timeStart;
         timeResult.push(averageTime);
-        averageResult = averageClic(timeResult);
-        gameContainer.classList.add("valid-clic");
+        averageResult = averageClick(timeResult);
+        gameContainer.classList.add("valid-click");
         setTimeout(function() {
-            gameContainer.classList.remove("valid-clic");
+            gameContainer.classList.remove("valid-click");
         }, 300);
 
         if (apparitionCount === 1) {
@@ -73,13 +74,11 @@ gameContainer.addEventListener("click", function (e) {
             apparitionCount--;
             targetCount.textContent = apparitionCount;
         }
-    }
-
-    else {
-        gameContainer.classList.add('invalid-clic');
-        errorClic++;
+    } else {
+        gameContainer.classList.add('invalid-click');
+        errorClick++;
         setTimeout(function() {
-            gameContainer.classList.remove("invalid-clic");
+            gameContainer.classList.remove("invalid-click");
             }, 300);
     }
 })
@@ -103,9 +102,11 @@ function startCount() {
 
 function createBall() {
     const ball = document.createElement('div');
-    ball.classList.add("clic-ball");
-    ball.style.top = `${randomNumber(0, 595)}px`;
-    ball.style.left = `${randomNumber(0, 1470)}px`;
+
+
+    ball.classList.add("click-ball");
+    ball.style.top = `${randomNumber(0, gameContainer.clientHeight - ballWidth)}px`;
+    ball.style.left = `${randomNumber(0, gameContainer.clientWidth - ballWidth)}px`;
     setTimeout(function () {
         gameContainer.appendChild(ball);
         timeStart = Date.now();
@@ -121,16 +122,16 @@ function restart() {
 function counterReset() {
     timeResult = [];
     apparitionCount = apparitionNumber;
-    errorClic = 0;
+    errorClick = 0;
     targetCount.textContent = apparitionCount;
 }
 
-function averageClic(array) {
+function averageClick(array) {
     let sum = 0;
     for (let entrie of array) {
         sum += +entrie;
     }
-    return (sum / array.length).toFixed(2);
+    return ((sum / array.length) / 1000).toFixed(2);
 }
 
 function saveBestScore(entrie) {
@@ -150,7 +151,7 @@ function displayResult() {
     gameText.innerHTML = `&#127919 Result: &#127919</br>
     - &#9201 Average time : ${averageResult}s</br>
     - &#11088 Best score : ${localStorage.getItem("bestScore")}s</br>
-    - &#10060 Miss Clic : ${errorClic}`
+    - &#10060 Miss Click : ${errorClick}`
     gameText.classList.add("result-display");
     gameText.classList.add("flex-active");
 }
